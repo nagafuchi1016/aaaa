@@ -26,18 +26,14 @@ public class MainActivity extends AppCompatActivity {
 
         //タイマーインスタンス生成
         this.mainTimer = new Timer();
-        //タスククラスインスタンス生成
-        this.mainTimerTask.schedule(mainTimerTask,1000,500);
+        mainTimerTask = new MainTimerTask();
+        mainTimer.schedule(mainTimerTask,1000,500);
+
         //テキストビュー
         this.countText = (TextView)findViewById(R.id.count_text);
     }
 
-    @Override
-    public boolean onCreanteOptionMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action ber if is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
+
 
     //タイマータスク派生クラス
     //run()に定周期で処理したい内容を記述
